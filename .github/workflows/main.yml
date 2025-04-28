@@ -10,54 +10,54 @@ on:
 
 jobs:
   run-client-tests:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Install Client Dependencies
-      working-directory: ./client
-      run: npm install
+      - name: Install Client Dependencies
+        working-directory: ./client
+        run: npm install
 
-    - name: Install Server Dependencies
-      working-directory: ./server
-      run: npm install
+      - name: Install Server Dependencies
+        working-directory: ./server
+        run: npm install
 
-    - name: Start MongoDB  # <-- ADD THIS
-      uses: supercharge/mongodb-github-action@1.10.0
-      with:
-        mongodb-version: '6.0'
+      - name: Start MongoDB  # <-- ADD THIS
+        uses: supercharge/mongodb-github-action@1.10.0
+        with:
+          mongodb-version: '6.0'
 
-    - name: Run Client Jest Tests
-      working-directory: ./client
-      run: npm test
+      - name: Run Client Jest Tests
+        working-directory: ./client
+        run: npm test
 
-    - name: Start Server in Background
-      working-directory: ./server
-      run: PORT=8000 npx ts-node server.ts > server.log 2>&1 &
-      env:
-        NODE_ENV: test
-        OPENAI_API_KEY: dummy
+      - name: Start Server in Background
+        working-directory: ./server
+        run: PORT=8000 npx ts-node server.ts > server.log 2>&1 &
+        env:
+          NODE_ENV: test
+          OPENAI_API_KEY: dummy
 
-    - name: Start Client in Background
-      working-directory: ./client
-      run: PORT=3000 npm start > client.log 2>&1 &
+      - name: Start Client in Background
+        working-directory: ./client
+        run: PORT=3000 npm start > client.log 2>&1 &
 
-    - name: Wait for Services to Start
-      run: |
-        npx wait-on tcp:127.0.0.1:3000 tcp:127.0.0.1:8000 --timeout=120000 || (
-          echo "::error ::Failed to detect one or both services"
-          echo "---- SERVER LOG ----"
-          cat ./server/server.log || true
-          echo "---- CLIENT LOG ----"
-          cat ./client/client.log || true
-          exit 1
-        )
+      - name: Wait for Services to Start
+        run: |
+          npx wait-on tcp:127.0.0.1:3000 tcp:127.0.0.1:8000 --timeout=120000 || (
+            echo "::error ::Failed to detect one or both services"
+            echo "---- SERVER LOG ----"
+            cat ./server/server.log || true
+            echo "---- CLIENT LOG ----"
+            cat ./client/client.log || true
+            exit 1
+          )
 
-    - name: Run Client Tests
-      working-directory: ./client
-      run: npm run cypress:run
+      - name: Run Client Tests
+        working-directory: ./client
+        run: npm run cypress:run
 
   run-server-tests:
     runs-on: ubuntu-latest
