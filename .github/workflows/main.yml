@@ -1,0 +1,110 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - sprint1
+      - deploy
+      - coverage
+
+jobs:
+  run-client-tests:
+    runs-on: ubuntu-latest  # CHANGED
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Client Dependencies
+        working-directory: ./client
+        run: npm install
+
+      - name: Install Server Dependencies
+        working-directory: ./server
+        run: npm install
+
+      - name: Run Client Jest Tests
+        working-directory: ./client
+        run: npm test
+
+      - name: Start Server in Background
+        working-directory: ./server
+        run: PORT=8000 npx ts-node server.ts > server.log 2>&1 &
+        env:
+          NODE_ENV: test
+          OPENAI_API_KEY: dummy
+
+      - name: Start Client in Background
+        working-directory: ./client
+        run: PORT=3000 npm start > client.log 2>&1 &
+
+      - name: Wait for Services to Start
+        run: |
+          npx wait-on tcp:127.0.0.1:3000 tcp:127.0.0.1:8000 --timeout=120000 || (
+            echo "::error ::Failed to detect one or both services"
+            echo "---- SERVER LOG ----"
+            cat ./server/server.log || true
+            echo "---- CLIENT LOG ----"
+            cat ./client/client.log || true
+            exit 1
+          )
+
+      - name: Run Client Tests
+        working-directory: ./client
+        run: npm run cypress:run
+
+  run-server-tests:
+    runs-on: ubuntu-latest
+
+    env:
+      NODE_ENV: test
+      OPENAI_API_KEY: dummy
+      MONGOMS_DOWNLOAD_DIR: .mongodb-binaries
+      # MONGOMS_DEBUG: 1
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Cache MongoDB Binary
+        uses: actions/cache@v3
+        with:
+          path: .mongodb-binaries
+          key: mongodb-binary-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Server Dependencies
+        working-directory: ./server
+        run: npm install
+
+      - name: Run Server Tests
+        working-directory: ./server
+        run: npm run test
+
+  lint-check:
+    runs-on: ubuntu-latest  # CHANGED
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Client Dependencies
+        working-directory: ./client
+        run: npm install
+
+      - name: Install Server Dependencies
+        working-directory: ./server
+        run: npm install
+
+      - name: Run Client Lint
+        working-directory: ./client
+        run: npm run lint
+
+      - name: Run Server Lint
+        working-directory: ./server
+        run: npm run lint
