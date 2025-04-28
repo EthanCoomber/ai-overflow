@@ -1,0 +1,72 @@
+/* Login Page Styles */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+
+.paper {
+  padding: 2rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form {
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-field .MuiOutlinedInput-root {
+  border-radius: 0.5rem;
+  height: 56px;
+}
+
+.text-field .MuiInputBase-input {
+  height: 100%;
+  padding: 0 14px;
+}
+
+.text-field .MuiInputLabel-root {
+  transform: translate(14px, 16px) scale(1);
+}
+
+.text-field .MuiInputLabel-shrink {
+  transform: translate(14px, -9px) scale(0.75);
+}
+
+.login-button {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #1976d2 !important;
+  color: #ffffff !important;
+  text-transform: none;
+}
+
+.login-button:hover {
+  background-color: #1565c0 !important;
+}
+
+.signup-link {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.signup-button {
+  text-transform: none;
+  color: #666666 !important;
+}
+
+.signup-button:hover {
+  text-decoration: underline;
+  color: #1976d2 !important;
+}

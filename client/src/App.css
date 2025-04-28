@@ -1,0 +1,22 @@
+.layout-container {
+    display: flex;
+    height: calc(100vh - 60px); 
+  }
+  
+  .sideBarNav {
+    width: 15%;
+    height: 100vh;
+    background-color: #f8f8f8; 
+    border-right: 1px dashed #ccc; 
+    padding: 4% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content-container {
+    width: 85%;
+    padding: 20px; 
+    overflow-y: auto;
+  }
+  

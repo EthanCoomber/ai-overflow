@@ -1,0 +1,66 @@
+/* Styling for the question body component */
+#questionBody {
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+#questionBody:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography styling */
+#questionBody .MuiTypography-subtitle1 {
+  color: #2c3e50;
+}
+
+#questionBody .MuiTypography-body1 {
+  line-height: 1.6;
+  color: #333333;
+  white-space: pre-wrap;
+}
+
+/* Icon styling */
+#questionBody .MuiSvgIcon-root {
+  color: #1976d2;
+}
+
+/* Vote button icon styling */
+#vote-container .MuiButton-startIcon .MuiSvgIcon-root {
+  color: white;
+}
+
+/* User info section */
+#questionBody .MuiStack-root {
+  background-color: #f8f9fa;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Divider styling */
+#questionBody .MuiDivider-root {
+  background-color: #e0e0e0;
+}
+
+/* Views count styling */
+#questionBody .MuiTypography-subtitle1 {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* User information styling */
+#questionBody .MuiTypography-subtitle2 {
+  display: flex;
+  align-items: center;
+}
+
+#questionBody .MuiTypography-caption {
+  display: flex;
+  align-items: center;
+  color: #6c757d;
+}
+
+/* Icon margin styling */
+#questionBody .MuiSvgIcon-small {
+  margin-right: 4px;
+}

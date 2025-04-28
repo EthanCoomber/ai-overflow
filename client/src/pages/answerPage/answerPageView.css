@@ -1,0 +1,46 @@
+/* Answer page styles */
+.answer_question_meta {
+    color: #bbbbbb;
+}
+
+.ansButton {
+    margin: 2% 0 2% 2%;
+}
+
+/* Container styling */
+.container {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+
+/* Answer button styling */
+.answer-button {
+    border-radius: 8px;
+    text-transform: none;
+    padding: 8px 24px;
+    margin-top: 16px;
+    background-color: #1976d2 !important;
+    color: white !important;
+}
+
+/* Loading container */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+/* Answer list container */
+.answers-container {
+    margin-bottom: 24px;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}

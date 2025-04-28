@@ -1,0 +1,26 @@
+/* Tag card styling */
+.tag-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tag-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tag-content {
+  flex-grow: 1;
+}
+
+.tag-name {
+  margin-bottom: 8px;
+}
+
+.tag-count {
+  margin-top: 8px;
+  color: #757575;
+}

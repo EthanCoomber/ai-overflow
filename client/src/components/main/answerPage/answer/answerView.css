@@ -1,0 +1,70 @@
+/* All the CSS related to answers Page*/
+.answer {
+    display: flex;
+    flex-direction: row;
+    border-bottom: #000000 1px dashed;
+}
+
+.answerText {
+    width: 75%;
+}
+
+.answerAuthor {
+    margin-left: 5%;
+}
+
+.answer_author {
+    color: green;
+}
+
+/* Answer paper styling */
+#answerPaper {
+    padding: 16px;
+    margin: 12px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+#answerPaper:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for answer text */
+#answerText {
+    line-height: 1.6;
+    word-wrap: break-word;
+    padding: 8px 0;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1rem;
+}
+
+#authorSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    min-width: 150px;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 4px;
+}
+
+#authorName {
+    color: #2e7d32;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+#metaInfo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.54);
+}

@@ -1,0 +1,113 @@
+#signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* Ensure full viewport height */
+  padding: 16px;
+  /* Add padding for small screens */
+}
+
+#signup-paper {
+  padding: 40px;
+  /* Increased padding for better spacing */
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  /* Keep max-width for larger screens */
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  /* Softer shadow */
+}
+
+#signup-title {
+  font-weight: bold;
+  margin-bottom: 32px;
+  /* Increased margin for better spacing */
+  text-align: center;
+  color: #333;
+  /* Darker color for better contrast */
+}
+
+#signup-error {
+  margin-bottom: 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  /* Slightly smaller font for better proportion */
+}
+
+#signup-form {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signup-button {
+  padding: 12px 0;
+  /* Consistent padding */
+  background-color: #1976d2 !important;
+  color: #ffffff !important;
+  text-transform: none;
+  font-size: 16px;
+  /* Slightly larger font for emphasis */
+  border-radius: 8px;
+  /* Match TextField border-radius */
+}
+
+#signup-button:hover {
+  background-color: #1565c0 !important;
+}
+
+#login-link-container {
+  margin-top: 24px;
+  text-align: center;
+}
+
+#login-link {
+  text-transform: none;
+  color: #666666 !important;
+  font-size: 14px;
+  /* Slightly smaller font for subtlety */
+}
+
+#login-link:hover {
+  text-decoration: underline;
+  color: #1976d2 !important;
+}
+
+/* TextField styling */
+.MuiOutlinedInput-root {
+  border-radius: 8px;
+  height: 50px;
+  /* Slightly smaller height for better proportion */
+}
+
+.MuiInputBase-input {
+  padding: 14px;
+  /* Consistent padding */
+  font-size: 16px;
+  /* Match button font size */
+}
+
+.MuiInputLabel-root {
+  transform: translate(14px, 14px) scale(1);
+  /* Adjusted label position */
+  font-size: 16px;
+  /* Match input font size */
+  color: #666;
+  /* Softer label color */
+}
+
+.MuiInputLabel-shrink {
+  transform: translate(14px, -6px) scale(0.75);
+  /* Adjusted shrink position */
+  color: #1976d2;
+  /* Match primary color */
+}
+
+/* Password error text */
+#password-error {
+  margin-top: 4px;
+  font-size: 12px;
+}

@@ -1,0 +1,38 @@
+/* Question Header Styles */
+.question-header {
+  margin-bottom: 24px;
+}
+
+/* Button styling */
+.question-header .MuiButton-contained {
+  text-transform: none;
+  font-weight: 500;
+  padding: 8px 16px;
+}
+
+.question-header .MuiButton-outlined {
+  text-transform: none;
+}
+
+/* Button group styling */
+.question-header .MuiButtonGroup-root {
+  margin-top: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .question-header .MuiBox-root {
+    margin-top: 16px;
+    width: 100%;
+  }
+  
+  .question-header .MuiButtonGroup-root {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

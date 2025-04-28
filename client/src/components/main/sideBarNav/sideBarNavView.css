@@ -1,0 +1,39 @@
+.sideBarNav {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    border-right: 1px dashed #000000;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.menu_button:first-child {
+    margin-top: 0;
+}
+
+.menu_button {
+    height: 40px;
+    width: 80%;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    color: #0d6efd;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu_button:hover {
+    background-color: #e6f0ff;
+    color: #0a58ca;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu_selected {
+    background-color: #e9ecef;
+    font-weight: 500;
+}
+
+.menu_selected:hover {
+    background-color: #dde2e6;
+}
